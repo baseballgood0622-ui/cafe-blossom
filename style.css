@@ -925,7 +925,7 @@ textarea {
   }
 }
 
-/* ★【必須要素②：アクションボタン（CTA）】メイン＆サブボタン */
+/* ★【必須要素②＆③：アクションボタン＆安心訴求ボタン（横1列レイアウト）】 */
 .hero__actions {
   display: flex;
   flex-wrap: wrap;
@@ -933,6 +933,12 @@ textarea {
   justify-content: center;
   gap: 14px 18px;
   margin-top: clamp(20px, 2.6vw, 30px);
+}
+
+.hero__actions .hero__appeal-btn {
+  padding: 14px 22px;
+  font-size: 0.90625rem;
+  box-shadow: 0 6px 20px rgba(38, 23, 19, 0.22);
 }
 
 .hero__btn-main {
@@ -1001,12 +1007,14 @@ textarea {
     margin-top: 18px;
   }
   .hero__btn-main,
-  .hero__btn-sub {
+  .hero__btn-sub,
+  .hero__actions .hero__appeal-btn {
     width: 100%;
     min-width: 0;
     max-width: 290px;
     padding-block: 13px;
     font-size: 0.90625rem;
+    justify-content: center;
   }
   .hero__appeals {
     width: 100%;
