@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <!-- スマートフォンやタブレットの画面幅に合わせて綺麗に表示するための必須設定 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- =====================================================================
+       ★【変更ポイント：ページのタイトルと説明文（検索結果・LINE共有用）】
+       Google検索や、LINEでURLを送ったときに表示されるお店の看板テキストです。
+       ===================================================================== -->
+  <title>Cafe Blossom（カフェ ブロッサム）｜日常の中に、小さな花が咲くようなひとときを。</title>
+  <meta name="description" content="来月、すずらん通り商店街にオープンする小さなカフェ「Cafe Blossom（カフェ ブロッサム）」。丁寧に淹れるコーヒーと店内手作りのタルトや焼き菓子をご用意して、おひとりでのひと休みにも、ご友人とのおしゃべりにも寄り添う温かい時間をお届けします。">
+
+  <!-- SNSやLINEでシェアされたときのプレビュー表示設定（OGP設定） -->
+  <meta property="og:title" content="Cafe Blossom（カフェ ブロッサム）｜日常の中に、小さな花が咲くようなひとときを。">
+  <meta property="og:description" content="来月、すずらん通り商店街にオープンする小さなカフェ。丁寧に淹れるコーヒーと店内手作りのタルトや焼き菓子で、心に小さな花が咲くような穏やかな時間をお届けします。">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Cafe Blossom">
+  <meta property="og:image" content="./assets/hero-cafe.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- ブラウザのタブに表示される小さな花アイコン（外部ファイル不要のSVG設定） -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='8' r='5' fill='%23AE525A'/%3E%3Ccircle cx='23.6' cy='13.5' r='5' fill='%23AE525A'/%3E%3Ccircle cx='20.7' cy='22.5' r='5' fill='%23AE525A'/%3E%3Ccircle cx='11.3' cy='22.5' r='5' fill='%23AE525A'/%3E%3Ccircle cx='8.4' cy='13.5' r='5' fill='%23AE525A'/%3E%3Ccircle cx='16' cy='16' r='3.5' fill='%23FDFBF7'/%3E%3C/svg%3E" type="image/svg+xml">
+
+  <!-- JavaScriptが有効な環境であることを判定する安全設計（JS無効時に文字が消えるのを防ぎます） -->
+  <script>document.documentElement.classList.add('js-enabled');</script>
+
+  <!-- Google Fonts（丸みと上品さを兼ね備えた日本語「Zen Maru Gothic」、軽やかな欧文「Quicksand」、高級感のある欧文「Cormorant Garamond」の読み込み） -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600&family=Quicksand:wght@500;600;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- デザイン用シート（style.css）の読み込み -->
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body id="top">
+
+  <!-- キーボード操作の方向け：本文へ直接移動するスキップリンク -->
+  <a href="#main-content" class="skip-link">本文へスキップ</a>
+
+  <!-- =====================================================================
+       ① ヘッダー（画面上部の店名ロゴ＆案内メニュー）
+       ===================================================================== -->
+  <header class="site-header" id="site-header">
+    <div class="site-header__inner">
+
+      <!-- ★【変更ポイント：お店のロゴ】
+           現在はロゴ素材準備中のため、文字（仮のテキストロゴ）で「Cafe Blossom」を表示しています。
+           将来ロゴ画像（例：assetsフォルダ内の logo.png）が完成したら、
+           下の「<span class="site-logo__text">〜<span class="site-logo__sub">」の2行を消して、
+           すぐ下の見本 <img> タグ前後のコメント記号を外すだけで綺麗に切り替わります！ -->
+      <a href="#top" class="site-logo" aria-label="Cafe Blossom（カフェ ブロッサム） トップへ戻る">
+        <!-- <img src="./assets/logo.png" alt="Cafe Blossom（カフェ ブロッサム）" width="160" height="40"> -->
+        <span class="site-logo__text">Cafe Blossom</span>
+        <span class="site-logo__sub">カフェ ブロッサム</span>
+      </a>
+
+      <!-- PC用ナビゲーション（768px以上の画面で横並びに表示されます）
+           ★【変更ポイント：ナビゲーション項目】
+           現在は必須3項目（Concept / Menu / Shop Info）をすっきり配置しています。
+           Access や Contact もヘッダーに並べたい場合は、下のコメント記号を外してください。 -->
+      <nav class="global-nav" aria-label="メインナビゲーション">
+        <ul class="global-nav__list">
+          <li class="global-nav__item">
+            <a href="#concept" class="global-nav__link">Concept</a>
+          </li>
+          <li class="global-nav__item">
+            <a href="#menu" class="global-nav__link">Menu</a>
+          </li>
+          <li class="global-nav__item">
+            <a href="#shop-info" class="global-nav__link">Shop Info</a>
+          </li>
+          <!--
+          <li class="global-nav__item">
+            <a href="#access" class="global-nav__link">Access</a>
+          </li>
+          <li class="global-nav__item">
+            <a href="#contact" class="global-nav__link global-nav__link--pill">Contact</a>
+          </li>
+          -->
+        </ul>
+      </nav>
+
+      <!-- スマートフォン用ハンバーガーメニューボタン（767px以下で右上に表示されます） -->
+      <button
+        type="button"
+        class="menu-toggle"
+        id="menu-toggle"
+        aria-expanded="false"
+        aria-controls="mobile-drawer"
+        aria-label="メニューを開く"
+      >
+        <span class="menu-toggle__bars" aria-hidden="true">
+          <span class="menu-toggle__bar"></span>
+          <span class="menu-toggle__bar"></span>
+          <span class="menu-toggle__bar"></span>
+        </span>
+        <span class="menu-toggle__label" id="menu-toggle-label">MENU</span>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- スマートフォン用スライドメニュー（ドロワー） -->
+  <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+    <div class="mobile-drawer__backdrop" id="mobile-drawer-backdrop"></div>
+    <nav class="mobile-drawer__panel" aria-label="スマートフォン用ナビゲーション">
+      <p class="mobile-drawer__lead">日常の中に、小さな花が咲くようなひとときを。</p>
+      <ul class="mobile-drawer__list">
+        <li class="mobile-drawer__item">
+          <a href="#concept" class="mobile-drawer__link">
+            <span class="mobile-drawer__en">Concept</span>
+            <span class="mobile-drawer__jp">想い・こだわり</span>
+          </a>
+        </li>
+        <li class="mobile-drawer__item">
+          <a href="#menu" class="mobile-drawer__link">
+            <span class="mobile-drawer__en">Menu</span>
+            <span class="mobile-drawer__jp">おすすめメニュー</span>
+          </a>
+        </li>
+        <li class="mobile-drawer__item">
+          <a href="#shop-info" class="mobile-drawer__link">
+            <span class="mobile-drawer__en">Shop Info</span>
+            <span class="mobile-drawer__jp">店舗情報・アクセス</span>
+          </a>
+        </li>
+        <!-- 必要に応じて Access / Contact もスマホメニューに追加できます
+        <li class="mobile-drawer__item">
+          <a href="#access" class="mobile-drawer__link">
+            <span class="mobile-drawer__en">Access</span>
+            <span class="mobile-drawer__jp">お店へのアクセス</span>
+          </a>
+        </li>
+        <li class="mobile-drawer__item">
+          <a href="#contact" class="mobile-drawer__link">
+            <span class="mobile-drawer__en">Contact</span>
+            <span class="mobile-drawer__jp">ちいさなおたより・お問い合わせ</span>
+          </a>
+        </li>
+        -->
+      </ul>
+      <div class="mobile-drawer__note">
+        <span>来月、すずらん通り商店街にオープン予定</span>
+      </div>
+    </nav>
+  </div>
+
+  <!-- メインコンテンツ開始 -->
+  <main id="main-content">
+
+    <!-- ===================================================================
+         ② メインビジュアル（カフェ背景写真 × 1行キャッチコピー × サブタイトル）
+         ★【変更ポイント：ファーストビューの写真・1行タイトル・サブタイトル】
+         ・背景写真を差し替える場合は、assets フォルダに新しい画像を入れて下の src="./assets/hero-cafe.jpg" を変更してください。
+         ・メインタイトル（1行表示）は <h1 class="hero__title">、サブタイトルは <p class="hero__subtitle"> の文字を書き換えられます。
+         ・文字サイズや写真の上にかけるベールの濃さは、style.css の「5. ② メインビジュアル」で調整できます。
+         =================================================================== -->
+    <section class="hero" aria-label="メインビジュアル">
+
+      <!-- フルスクリーン背景写真（窓辺の自然光・カフェラテ・焼き菓子・一輪挿し） -->
+      <div class="hero__bg">
+        <img
+          src="./assets/hero-cafe.jpg"
+          alt="やわらかな自然光が差し込む窓辺の木のテーブルに並ぶ、カフェラテと焼きたての焼き菓子、小さな花の一輪挿し"
+          width="1376"
+          height="768"
+          fetchpriority="high"
+        >
+      </div>
+
+      <!-- 中央テキストエリア（高級感とポップな親しみやすさを両立した構成） -->
+      <div class="hero__inner">
+        <p class="hero__eyebrow">
+          <span class="hero__sparkle" aria-hidden="true">✦</span>
+          <span class="hero__eyebrow-text">Cafe Blossom</span>
+          <span class="hero__sparkle" aria-hidden="true">✦</span>
+        </p>
+
+        <h1 class="hero__title">ちょっと寄り道、していきませんか？</h1>
+
+        <!-- サブタイトル（背景写真の上に直接すっきりと浮かぶ白文字） -->
+        <p class="hero__subtitle">好きなことを、好きなだけ。</p>
+      </div>
+
+      <!-- 下にコンテンツが続くことを自然に伝える、控えめなスクロール案内 -->
+      <a href="#concept" class="hero__scroll">SCROLL</a>
+    </section>
+
+    <!-- ===================================================================
+         ③ コンセプト紹介（#concept：お店の想い・2つのこだわり）
+         =================================================================== -->
+    <section class="section concept" id="concept">
+      <div class="container">
+
+        <!-- セクション見出し -->
+        <div class="section-header js-fade-up">
+          <span class="section-header__flower" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none">
+              <path d="M12 4.5C13.4 4.5 14.5 5.8 14.5 7.5C14.5 8.2 14.2 8.9 13.8 9.4C14.4 9.1 15.1 9 15.8 9.2C17.4 9.7 18.2 11.3 17.7 12.6C17.3 13.8 16.1 14.4 14.8 14.3C15.4 14.9 15.8 15.8 15.6 16.8C15.3 18.3 13.8 19.2 12.5 18.7C12.2 18.6 12.1 18.5 12 18.4C11.9 18.5 11.8 18.6 11.5 18.7C10.2 19.2 8.7 18.3 8.4 16.8C8.2 15.8 8.6 14.9 9.2 14.3C7.9 14.4 6.7 13.8 6.3 12.6C5.8 11.3 6.6 9.7 8.2 9.2C8.9 9 9.6 9.1 10.2 9.4C9.8 8.9 9.5 8.2 9.5 7.5C9.5 5.8 10.6 4.5 12 4.5Z" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="12" cy="12.2" r="1.4" fill="currentColor"/>
+            </svg>
+          </span>
+          <p class="section-header__en">CONCEPT</p>
+          <h2 class="section-header__title">ほっと深呼吸できる、街角の小さな特等席</h2>
+        </div>
+
+        <!-- ★【変更ポイント：コンセプト導入リード文】 -->
+        <div class="concept__lead js-fade-up">
+          <p>
+            忙しい毎日の中に、<br>
+            ふと立ち止まって、ほっとひと息つける場所を。
+          </p>
+          <p>
+            Cafe Blossom（カフェ ブロッサム）がお届けしたいのは、<br class="pc-only">
+            一杯ずつ丁寧に淹れたコーヒーと、<br class="pc-only">
+            店内のオーブンで焼き上げる、やさしい甘さのお菓子です。
+          </p>
+          <p>
+            お買い物の帰り道や、休日のちいさな寄り道に。<br class="pc-only">
+            何気ない日常が少しだけ特別になり、<br class="pc-only">
+            心に小さな花が咲くような、穏やかな時間をお過ごしください。
+          </p>
+        </div>
+
+        <!-- こだわり紹介（PCでは左右互い違いに配置し、スマホでは写真→文章の順で縦に並びます） -->
+        <div class="concept__stories">
+
+          <!-- ★【変更ポイント：こだわり①（左に写真・右に文章）】 -->
+          <article class="concept-item js-fade-up">
+            <div class="concept-item__media">
+              <div class="concept-item__image-wrap concept-item__image-wrap--pink">
+                <img
+                  src="./assets/concept-coffee.jpg"
+                  alt="一杯ずつ丁寧に淹れるコーヒーと、店内で焼き上げた手作りのお菓子"
+                  width="1200"
+                  height="896"
+                >
+              </div>
+            </div>
+            <div class="concept-item__body">
+              <p class="concept-item__label">
+                <span class="concept-item__num">01</span>
+                <span class="concept-item__en">Handcrafted Coffee &amp; Sweets</span>
+              </p>
+              <h3 class="concept-item__title">焼きたての香りと、一杯ずつ淹れるぬくもり</h3>
+              <p class="concept-item__text">
+                朝いちばんの店内は、バターと小麦が焼ける香ばしく甘い匂いから始まります。
+              </p>
+              <p class="concept-item__text">
+                タルトやスコーンなどのお菓子は、毎日少しずつ店内で手作り。ご注文をいただいてから丁寧に淹れるコーヒーと一緒に、肩の力がふっと抜けるような、やさしい味わいをお楽しみください。
+              </p>
+            </div>
+          </article>
+
+          <!-- ★【変更ポイント：こだわり②（PCでは左に文章・右に写真へ反転）】 -->
+          <article class="concept-item concept-item--reverse js-fade-up">
+            <div class="concept-item__media">
+              <div class="concept-item__image-wrap concept-item__image-wrap--cream">
+                <img
+                  src="./assets/concept-interior.jpg"
+                  alt="やわらかな自然光が差し込む、木のぬくもりと余白を大切にした店内の客席"
+                  width="1200"
+                  height="896"
+                >
+              </div>
+            </div>
+            <div class="concept-item__body">
+              <p class="concept-item__label">
+                <span class="concept-item__num">02</span>
+                <span class="concept-item__en">Cozy Space for Everyone</span>
+              </p>
+              <h3 class="concept-item__title">ご友人とのおしゃべりにも、窓辺のおひとり時間にも</h3>
+              <p class="concept-item__text">
+                やわらかな自然光が差し込む店内は、木のぬくもりと席のゆとりを大切にした穏やかな空間です。
+              </p>
+              <p class="concept-item__text">
+                気心の知れたご友人とゆっくり語らえるテーブル席と、おひとりでも気兼ねなく読書やひと休みができる窓辺のお席をご用意しました。普段着のまま、お散歩の途中にどうぞふらりとお立ち寄りください。
+              </p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         ④ おすすめメニュー（#menu：写真を主役にした4品のカード紹介）
+         =================================================================== -->
+    <section class="section menu" id="menu">
+      <div class="container">
+
+        <!-- セクション見出し -->
+        <div class="section-header js-fade-up">
+          <span class="section-header__flower" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none">
+              <path d="M12 4.5C13.4 4.5 14.5 5.8 14.5 7.5C14.5 8.2 14.2 8.9 13.8 9.4C14.4 9.1 15.1 9 15.8 9.2C17.4 9.7 18.2 11.3 17.7 12.6C17.3 13.8 16.1 14.4 14.8 14.3C15.4 14.9 15.8 15.8 15.6 16.8C15.3 18.3 13.8 19.2 12.5 18.7C12.2 18.6 12.1 18.5 12 18.4C11.9 18.5 11.8 18.6 11.5 18.7C10.2 19.2 8.7 18.3 8.4 16.8C8.2 15.8 8.6 14.9 9.2 14.3C7.9 14.4 6.7 13.8 6.3 12.6C5.8 11.3 6.6 9.7 8.2 9.2C8.9 9 9.6 9.1 10.2 9.4C9.8 8.9 9.5 8.2 9.5 7.5C9.5 5.8 10.6 4.5 12 4.5Z" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="12" cy="12.2" r="1.4" fill="currentColor"/>
+            </svg>
+          </span>
+          <p class="section-header__en">MENU</p>
+          <h2 class="section-header__title">心をほどく、おすすめメニュー</h2>
+          <p class="section-header__desc">
+            素材の香りとやさしい甘さを大切に、店内でひとつずつ丁寧にお作りしています。
+          </p>
+        </div>
+
+        <!-- ★【変更ポイント：おすすめメニュー4品（写真・名前・価格・説明文）】
+             価格や文章を変えたいときは、各 <article class="menu-card"> の中の文字を書き換えてください -->
+        <div class="menu-grid">
+
+          <!-- メニュー1：自家製いちごタルト -->
+          <article class="menu-card js-fade-up">
+            <div class="menu-card__image">
+              <img
+                src="./assets/menu-strawberry-tart.jpg"
+                alt="旬の真っ赤ないちごを彩りよく重ねた自家製いちごタルト"
+                width="1200"
+                height="896"
+                class="menu-card__img--offset"
+              >
+            </div>
+            <div class="menu-card__content">
+              <div class="menu-card__meta">
+                <span class="menu-card__tag">店内手作り</span>
+                <span class="menu-card__en">Homemade Strawberry Tart</span>
+              </div>
+              <div class="menu-card__header">
+                <h3 class="menu-card__title">自家製いちごタルト</h3>
+                <p class="menu-card__price">
+                  <span class="menu-card__amount">¥680</span><span class="menu-card__tax">（税込）</span>
+                </p>
+              </div>
+              <p class="menu-card__desc">
+                香ばしく焼き上げたサクサクのタルト生地に、やさしい甘さのカスタードと旬のいちごをたっぷり重ねました。口いっぱいに広がる甘酸っぱい果実の瑞々しさに、思わず笑顔がこぼれる一皿です。
+              </p>
+            </div>
+          </article>
+
+          <!-- メニュー2：ふんわりカフェラテ -->
+          <article class="menu-card js-fade-up" data-delay="1">
+            <div class="menu-card__image">
+              <img
+                src="./assets/menu-cafe-latte.jpg"
+                alt="きめ細かなフォームミルクでふんわり仕上げた温かいカフェラテ"
+                width="1200"
+                height="896"
+              >
+            </div>
+            <div class="menu-card__content">
+              <div class="menu-card__meta">
+                <span class="menu-card__tag">丁寧に抽出</span>
+                <span class="menu-card__en">Fluffy Cafe Latte（Hot / Ice）</span>
+              </div>
+              <div class="menu-card__header">
+                <h3 class="menu-card__title">ふんわりカフェラテ</h3>
+                <p class="menu-card__price">
+                  <span class="menu-card__amount">¥580</span><span class="menu-card__tax">（税込）</span>
+                </p>
+              </div>
+              <p class="menu-card__desc">
+                丁寧に抽出した香り高いエスプレッソを、きめ細かく泡立てたミルクでふんわりと包みました。思わず両手でカップをそっと包み込みたくなる、まろやかでやさしい口あたりの一杯です。
+              </p>
+            </div>
+          </article>
+
+          <!-- メニュー3：季節のフルーツパンケーキ -->
+          <article class="menu-card js-fade-up">
+            <div class="menu-card__image">
+              <img
+                src="./assets/menu-fruit-pancake.jpg"
+                alt="季節の彩り豊かなフルーツとクリームを添えたふんわりパンケーキ"
+                width="1200"
+                height="896"
+                class="menu-card__img--offset"
+              >
+            </div>
+            <div class="menu-card__content">
+              <div class="menu-card__meta">
+                <span class="menu-card__tag">季節のおすすめ</span>
+                <span class="menu-card__en">Seasonal Fruit Pancake</span>
+              </div>
+              <div class="menu-card__header">
+                <h3 class="menu-card__title">季節のフルーツパンケーキ</h3>
+                <p class="menu-card__price">
+                  <span class="menu-card__amount">¥1,180</span><span class="menu-card__tax">（税込）</span>
+                </p>
+              </div>
+              <p class="menu-card__desc">
+                ご注文をいただいてから一枚ずつふんわりと焼き上げ、その季節ならではの彩り豊かな果実を添えました。軽い口どけのクリームとメープルシロップを絡めて、ちょっと特別な午後のご褒美にどうぞ。
+              </p>
+            </div>
+          </article>
+
+          <!-- メニュー4：本日の焼き菓子プレート -->
+          <article class="menu-card js-fade-up" data-delay="1">
+            <div class="menu-card__image">
+              <img
+                src="./assets/menu-baked-sweets.jpg"
+                alt="その日の朝に焼いたスコーンやフィナンシェを少しずつ盛り合わせた焼き菓子プレート"
+                width="1200"
+                height="896"
+                class="menu-card__img--offset"
+              >
+            </div>
+            <div class="menu-card__content">
+              <div class="menu-card__meta">
+                <span class="menu-card__tag">朝焼きおやつ</span>
+                <span class="menu-card__en">Today's Baked Sweets Plate</span>
+              </div>
+              <div class="menu-card__header">
+                <h3 class="menu-card__title">本日の焼き菓子プレート</h3>
+                <p class="menu-card__price">
+                  <span class="menu-card__amount">¥750</span><span class="menu-card__tax">（税込）</span>
+                </p>
+              </div>
+              <p class="menu-card__desc">
+                その日の朝に焼き上げたスコーンやフィナンシェ、クッキーなどを少しずつ盛り合わせた気まぐれプレートです。「今日はどんなお菓子かな？」と選ぶ時間も楽しく、コーヒーのお供にぴったりな一皿です。
+              </p>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- メニュー下部のやさしい補足メモ -->
+        <div class="menu__notes js-fade-up">
+          <p>※上記の価格はオープン前の参考予定価格（架空・税込）です。季節や仕入れ状況により、果物の種類や内容が一部変わる場合がございます。</p>
+          <p>※ハンドドリップコーヒーや紅茶、季節のフルーツソーダ、焼き菓子のテイクアウトもご用意する予定です。</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         ⑤ 店舗情報（#shop-info：営業時間・定休日・準備中のお電話番号など）
+         =================================================================== -->
+    <section class="section shop-info" id="shop-info">
+      <div class="container container--narrow">
+
+        <!-- セクション見出し -->
+        <div class="section-header js-fade-up">
+          <span class="section-header__flower" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none">
+              <path d="M12 4.5C13.4 4.5 14.5 5.8 14.5 7.5C14.5 8.2 14.2 8.9 13.8 9.4C14.4 9.1 15.1 9 15.8 9.2C17.4 9.7 18.2 11.3 17.7 12.6C17.3 13.8 16.1 14.4 14.8 14.3C15.4 14.9 15.8 15.8 15.6 16.8C15.3 18.3 13.8 19.2 12.5 18.7C12.2 18.6 12.1 18.5 12 18.4C11.9 18.5 11.8 18.6 11.5 18.7C10.2 19.2 8.7 18.3 8.4 16.8C8.2 15.8 8.6 14.9 9.2 14.3C7.9 14.4 6.7 13.8 6.3 12.6C5.8 11.3 6.6 9.7 8.2 9.2C8.9 9 9.6 9.1 10.2 9.4C9.8 8.9 9.5 8.2 9.5 7.5C9.5 5.8 10.6 4.5 12 4.5Z" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="12" cy="12.2" r="1.4" fill="currentColor"/>
+            </svg>
+          </span>
+          <p class="section-header__en">SHOP INFO</p>
+          <h2 class="section-header__title">店舗のご案内</h2>
+          <p class="section-header__desc">
+            来月のオープンに向けて、ただいま心を込めて準備を進めております。
+          </p>
+        </div>
+
+        <!-- ★【変更ポイント：店舗基本情報カード】
+             住所や営業時間が確定したら、各 <dd> タグの中の文字を書き換えてください -->
+        <div class="shop-card js-fade-up">
+          <dl class="shop-info-list">
+
+            <div class="shop-info-row">
+              <dt class="shop-info-row__term">店名</dt>
+              <dd class="shop-info-row__desc">Cafe Blossom（カフェ ブロッサム）</dd>
+            </div>
+
+            <div class="shop-info-row">
+              <dt class="shop-info-row__term">住所</dt>
+              <dd class="shop-info-row__desc">
+                〒000-0000 東京都〇〇市花咲町2-4-8 すずらん通り商店街 1F<br>
+                <span class="shop-info-row__caution">※架空の住所です（実際の所在地はオープン確定後にご案内いたします）</span>
+              </dd>
+            </div>
+
+            <div class="shop-info-row">
+              <dt class="shop-info-row__term">営業時間</dt>
+              <dd class="shop-info-row__desc">
+                10:00〜18:00<span class="shop-info-row__sub">（お食事ラストオーダー 17:00 ／ お飲み物ラストオーダー 17:30）</span>
+              </dd>
+            </div>
+
+            <div class="shop-info-row">
+              <dt class="shop-info-row__term">定休日</dt>
+              <dd class="shop-info-row__desc">
+                毎週水曜日<span class="shop-info-row__sub">（※臨時のお休みやオープン日は公式Instagramでお知らせいたします）</span>
+              </dd>
+            </div>
+
+            <!-- ★【変更ポイント：お電話番号の追加方法】
+                 現在はオープン前のため、架空の電話番号は表示せず「現在準備中」としています。
+                 オープン後にお電話番号が開通したら、下の <span class="badge-prep">〜</span> の2行を消して、
+                 コメントアウト見本のように <a href="tel:..."> タグを有効にしてください（スマホでタップ発信できるようになります）。 -->
+            <div class="shop-info-row">
+              <dt class="shop-info-row__term">電話番号</dt>
+              <dd class="shop-info-row__desc">
+                <span class="badge-prep">準備中</span>
+                <span>現在準備中（オープン後にこちらへ掲載いたします）</span>
+                <!-- 【差し替え見本】前後のコメント記号を外し、実際の番号に書き換えてご使用ください：
+                <a href="tel:00-0000-0000" class="shop-tel-link">00-0000-0000</a>
+                -->
+              </dd>
+            </div>
+
+            <div class="shop-info-row">
+              <dt class="shop-info-row__term">お席の目安</dt>
+              <dd class="shop-info-row__desc">
+                店内 14席（テーブル席・おひとり様向け窓辺席あり／全席禁煙）<span class="shop-info-row__sub">※予定</span>
+              </dd>
+            </div>
+
+          </dl>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         ⑥ アクセス（#access：Googleマップ埋め込み枠＆道順のご案内）
+         =================================================================== -->
+    <section class="section access" id="access">
+      <div class="container container--medium">
+
+        <!-- セクション見出し -->
+        <div class="section-header js-fade-up">
+          <span class="section-header__flower" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none">
+              <path d="M12 4.5C13.4 4.5 14.5 5.8 14.5 7.5C14.5 8.2 14.2 8.9 13.8 9.4C14.4 9.1 15.1 9 15.8 9.2C17.4 9.7 18.2 11.3 17.7 12.6C17.3 13.8 16.1 14.4 14.8 14.3C15.4 14.9 15.8 15.8 15.6 16.8C15.3 18.3 13.8 19.2 12.5 18.7C12.2 18.6 12.1 18.5 12 18.4C11.9 18.5 11.8 18.6 11.5 18.7C10.2 19.2 8.7 18.3 8.4 16.8C8.2 15.8 8.6 14.9 9.2 14.3C7.9 14.4 6.7 13.8 6.3 12.6C5.8 11.3 6.6 9.7 8.2 9.2C8.9 9 9.6 9.1 10.2 9.4C9.8 8.9 9.5 8.2 9.5 7.5C9.5 5.8 10.6 4.5 12 4.5Z" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="12" cy="12.2" r="1.4" fill="currentColor"/>
+            </svg>
+          </span>
+          <p class="section-header__en">ACCESS</p>
+          <h2 class="section-header__title">お店へのアクセス</h2>
+        </div>
+
+        <!-- ★【変更ポイント：Googleマップの埋め込みエリア】
+             【差し替え手順】
+             1. Googleマップでお店の住所を検索し、「共有」→「地図を埋め込む」→「HTMLをコピー」を押します。
+             2. 下の <div class="map-placeholder"> から </div> までのブロックを丸ごと削除します。
+             3. コピーした <iframe src="https://www.google.com/maps/embed?..." ...></iframe> をそのまま貼り付ければ、
+                パソコンでもスマホでも自動的に枠ぴったりに美しく表示されます！ -->
+        <div class="map-container js-fade-up">
+          <div class="map-placeholder">
+            <span class="map-placeholder__icon" aria-hidden="true">
+              <svg viewBox="0 0 36 36" width="38" height="38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 31.5C18 31.5 28.5 22.8 28.5 14.5C28.5 8.70101 23.799 4 18 4C12.201 4 7.5 8.70101 7.5 14.5C7.5 22.8 18 31.5 18 31.5Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="18" cy="14.5" r="4.2" stroke="currentColor" stroke-width="1.8"/>
+              </svg>
+            </span>
+            <p class="map-placeholder__en">Map Coming Soon</p>
+            <h3 class="map-placeholder__title">ただいま地図の準備を進めております</h3>
+            <p class="map-placeholder__desc">
+              お店の詳しいGoogleマップは、住所の確定後にこちらで公開いたします。<br class="pc-only">
+              商店街のお散歩がてら迷わずお越しいただけるよう準備しておりますので、<br class="pc-only">
+              オープンまで今しばらくお待ちください。
+            </p>
+          </div>
+          <!-- 【Googleマップ貼り付け見本】
+          <iframe
+            src="https://www.google.com/maps/embed?pb=ここにGoogleマップの埋め込みURLが入ります"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Cafe Blossom（カフェ ブロッサム）周辺地図">
+          </iframe>
+          -->
+        </div>
+
+        <!-- ★【変更ポイント：地図下の住所・最寄り駅・目印のご案内】 -->
+        <div class="access-details js-fade-up">
+          <div class="access-details__grid">
+
+            <div class="access-details__item">
+              <h3 class="access-details__heading">
+                <span class="access-details__dot" aria-hidden="true"></span>
+                所在地・最寄り駅
+              </h3>
+              <p class="access-details__text">
+                <strong>〒000-0000 東京都〇〇市花咲町2-4-8 すずらん通り商店街 1F</strong>（※架空の住所です）<br>
+                〇〇線「花咲駅」南口より、商店街を通って徒歩約6分
+              </p>
+            </div>
+
+            <div class="access-details__item">
+              <h3 class="access-details__heading">
+                <span class="access-details__dot" aria-hidden="true"></span>
+                商店街での目印
+              </h3>
+              <p class="access-details__text">
+                駅前の「すずらん通り商店街」をまっすぐ進み、街角の小さな花屋さんの2軒となり。白い木枠の扉とクリーム色のひさしが目印です。
+              </p>
+            </div>
+
+            <div class="access-details__item access-details__item--full">
+              <h3 class="access-details__heading">
+                <span class="access-details__dot" aria-hidden="true"></span>
+                自転車・ベビーカーでのご来店案内
+              </h3>
+              <p class="access-details__text">
+                お店の前に自転車を3台ほどお停めいただけるスペースがございます。入り口は段差の少ないフラットな造りですので、ベビーカーのままでもどうぞ安心してお入りください。
+              </p>
+            </div>
+
+          </div>
+          <p class="access-details__note">
+            ※上記の住所・最寄り駅・目印などの案内は、すべてホームページ制作イメージ用の架空情報です。
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         【補足セクション】おたより・お問い合わせ（#contact）
+         ★【変更ポイント：お問い合わせ欄の表示・非表示について】
+         もしフォームを使わずInstagramや店頭のみで受付したい場合は、
+         すぐ下の <section class="section contact" id="contact"> から
+         </section>（おたよりセクション終了）までを丸ごと削除またはコメントアウトするだけで非表示にできます。
+         =================================================================== -->
+    <section class="section contact" id="contact">
+      <div class="container container--narrow">
+
+        <!-- セクション見出し -->
+        <div class="section-header js-fade-up">
+          <span class="section-header__flower" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none">
+              <path d="M12 4.5C13.4 4.5 14.5 5.8 14.5 7.5C14.5 8.2 14.2 8.9 13.8 9.4C14.4 9.1 15.1 9 15.8 9.2C17.4 9.7 18.2 11.3 17.7 12.6C17.3 13.8 16.1 14.4 14.8 14.3C15.4 14.9 15.8 15.8 15.6 16.8C15.3 18.3 13.8 19.2 12.5 18.7C12.2 18.6 12.1 18.5 12 18.4C11.9 18.5 11.8 18.6 11.5 18.7C10.2 19.2 8.7 18.3 8.4 16.8C8.2 15.8 8.6 14.9 9.2 14.3C7.9 14.4 6.7 13.8 6.3 12.6C5.8 11.3 6.6 9.7 8.2 9.2C8.9 9 9.6 9.1 10.2 9.4C9.8 8.9 9.5 8.2 9.5 7.5C9.5 5.8 10.6 4.5 12 4.5Z" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="12" cy="12.2" r="1.4" fill="currentColor"/>
+            </svg>
+          </span>
+          <p class="section-header__en">CONTACT</p>
+          <h2 class="section-header__title">ちいさなおたより・お問い合わせ</h2>
+          <p class="section-header__desc">
+            オープン前のちょっとしたご質問や、ベビーカー・アレルギーに関するご相談、<br class="pc-only">
+            オープン後の焼き菓子のお取り置き相談など、どうぞお気軽にお声がけください。<br class="pc-only">
+            開店準備の合間に、店主よりひとつずつ丁寧にお返事いたします。
+          </p>
+        </div>
+
+        <!-- お客さまが安心して入力できるよう、
+             必ず「①ご用件 → ②メッセージ内容（本題）」を先に配置し、
+             その下に「③お名前 → ④メールアドレス（ご連絡先）」を配置しています -->
+        <div class="contact-card js-fade-up">
+          <form class="contact-form" id="contact-form" novalidate>
+
+            <!-- 【グループ1：一番上】ご用件・メッセージ内容（本題） -->
+            <div class="form-step">
+              <div class="form-step__header">
+                <span class="form-step__badge">Step 1</span>
+                <p class="form-step__title">まずはご用件・メッセージをお聞かせください</p>
+              </div>
+
+              <!-- 1. ご用件の選択 -->
+              <div class="form-group">
+                <label for="contact-topic" class="form-label">
+                  <span>ご用件</span>
+                  <span class="form-required">必須</span>
+                </label>
+                <div class="form-select-wrap">
+                  <select id="contact-topic" name="topic" class="form-control form-control--select" required>
+                    <option value="" selected disabled>ご用件をお選びください</option>
+                    <option value="お店・メニューについてのご質問">お店・メニューについてのご質問</option>
+                    <option value="ベビーカー・お席・アレルギーなどのご相談">ベビーカー・お席・アレルギーなどのご相談</option>
+                    <option value="焼き菓子のお取り置き・テイクアウトのご相談（オープン後）">焼き菓子のお取り置き・テイクアウトのご相談（オープン後）</option>
+                    <option value="その他のおたより・お問い合わせ">その他のおたより・お問い合わせ</option>
+                  </select>
+                </div>
+                <p class="form-error" id="error-topic" role="alert" hidden></p>
+              </div>
+
+              <!-- 2. メッセージ内容 -->
+              <div class="form-group">
+                <label for="contact-message" class="form-label">
+                  <span>メッセージ内容</span>
+                  <span class="form-required">必須</span>
+                </label>
+                <textarea
+                  id="contact-message"
+                  name="message"
+                  rows="5"
+                  class="form-control form-control--textarea"
+                  placeholder="気になることやご質問など、どうぞお気軽にご記入ください。（例：ベビーカーで伺っても大丈夫でしょうか？／いちごタルトのテイクアウトはありますか？ など）"
+                  required
+                ></textarea>
+                <p class="form-error" id="error-message" role="alert" hidden></p>
+              </div>
+            </div>
+
+            <hr class="form-divider" aria-hidden="true">
+
+            <!-- 【グループ2：下部】お名前・メールアドレス（ご連絡先） -->
+            <div class="form-step">
+              <div class="form-step__header">
+                <span class="form-step__badge">Step 2</span>
+                <p class="form-step__title">お返事をお届けするご連絡先をご入力ください</p>
+              </div>
+
+              <!-- 3. お名前 -->
+              <div class="form-group">
+                <label for="contact-name" class="form-label">
+                  <span>お名前</span>
+                  <span class="form-required">必須</span>
+                </label>
+                <input
+                  type="text"
+                  id="contact-name"
+                  name="name"
+                  autocomplete="name"
+                  class="form-control"
+                  placeholder="例：花咲 さくら（ご質問のみの場合はニックネームでも構いません）"
+                  required
+                >
+                <p class="form-error" id="error-name" role="alert" hidden></p>
+              </div>
+
+              <!-- 4. メールアドレス -->
+              <div class="form-group">
+                <label for="contact-email" class="form-label">
+                  <span>お返事先のメールアドレス</span>
+                  <span class="form-required">必須</span>
+                </label>
+                <input
+                  type="email"
+                  id="contact-email"
+                  name="email"
+                  autocomplete="email"
+                  class="form-control"
+                  placeholder="例：sakura@example.com"
+                  required
+                >
+                <p class="form-error" id="error-email" role="alert" hidden></p>
+              </div>
+            </div>
+
+            <!-- 送信ボタン＆安心の補足メッセージ -->
+            <div class="form-submit-area">
+              <button type="submit" class="btn btn--primary btn--submit">
+                <span>おたよりを送る</span>
+              </button>
+              <!-- ★【変更ポイント：問い合わせ後の対応目安（お返事までの日数など）】 -->
+              <div class="form-notes">
+                <p>※通常2〜3日以内にメールにてお返事いたします。</p>
+                <p>※ご入力いただいた個人情報は、お返事のためだけに大切に使用し、営業のお知らせ等をお送りすることは一切ございません。</p>
+                <p class="form-notes__sample">（※現在はオープン準備中のサンプル画面のため、実際の送信は行われません）</p>
+              </div>
+            </div>
+
+          </form>
+
+          <!-- サンプル送信完了時にふんわり表示されるお礼メッセージ（初期状態は非表示） -->
+          <div class="contact-thanks" id="contact-thanks" role="status" aria-live="polite" hidden>
+            <div class="contact-thanks__icon" aria-hidden="true">🌸</div>
+            <h3 class="contact-thanks__title">温かいおたよりをありがとうございます</h3>
+            <p class="contact-thanks__text">
+              メッセージを受け付けいたしました。<br>
+              オープン準備中のサンプル動作のため実際のメール送信は行われておりませんが、<br class="pc-only">
+              開店後は通常2〜3日以内に、店主よりメールにてひとつずつ丁寧にお返事いたします。
+            </p>
+            <div class="contact-thanks__summary" id="contact-thanks-summary"></div>
+            <button type="button" class="btn btn--secondary" id="contact-reset-btn">
+              <span>入力画面に戻る</span>
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+    <!-- ===== おたより・お問い合わせセクション終了 ===== -->
+
+  </main>
+
+  <!-- =====================================================================
+       ⑦ フッター（ページ一番下の締めくくりエリア・Instagram案内）
+       ===================================================================== -->
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+
+      <!-- フッター店名ロゴ（ヘッダー同様、将来画像ロゴに差し替え可能です） -->
+      <div class="site-footer__brand">
+        <a href="#top" class="site-logo site-logo--footer" aria-label="ページ先頭へ戻る">
+          <!-- <img src="./assets/logo.png" alt="Cafe Blossom（カフェ ブロッサム）" width="160" height="40"> -->
+          <span class="site-logo__text">Cafe Blossom</span>
+        </a>
+        <p class="site-footer__subname">カフェ ブロッサム</p>
+      </div>
+
+      <!-- ひとことメッセージ -->
+      <p class="site-footer__message">
+        日常の中に、小さな花が咲くようなひとときを。<br>
+        すずらん通り商店街で、皆さまにお会いできる日を心より楽しみにしております。
+      </p>
+
+      <!-- ★【変更ポイント：公式Instagramへのリンク設定】
+           現在はアカウント開設前のため、安全に href="#"（仮リンク）を設定しています。
+           【アカウント開設後の差し替え手順】
+           1. 下の <a> タグの href="#" を、実際のInstagram URL（例：href="https://www.instagram.com/あなたのID/"）に書き換えます。
+           2. 新しいタブで開く場合は、<a> タグの中に target="_blank" rel="noopener noreferrer" を追加します。
+           3. ボタン内の <span class="instagram-btn__badge">準備中</span> の1行を消せば本公開完了です！ -->
+      <div class="site-footer__sns">
+        <p class="site-footer__sns-lead">
+          オープンまでの試作風景や開店日のお知らせは、Instagramで少しずつ綴っています。
+        </p>
+        <a
+          href="#"
+          class="instagram-btn"
+          id="instagram-link"
+          data-preparing="true"
+        >
+          <svg class="instagram-btn__icon" viewBox="0 0 24 24" width="19" height="19" fill="none" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.7"/>
+            <circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.7"/>
+            <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor"/>
+          </svg>
+          <span class="instagram-btn__text">公式Instagramを見る</span>
+          <span class="instagram-btn__badge">準備中</span>
+        </a>
+        <!-- 準備中のリンクを押した際にふんわり表示されるやさしい案内メッセージ -->
+        <p class="site-footer__sns-notice" id="instagram-notice" role="status" aria-live="polite" hidden>
+          公式Instagramは現在オープンに向けて準備中です🌸 開設までどうぞ楽しみにお待ちください。
+        </p>
+      </div>
+
+      <!-- フッター内ページ移動リンク -->
+      <nav class="footer-nav" aria-label="フッターナビゲーション">
+        <ul class="footer-nav__list">
+          <li><a href="#concept" class="footer-nav__link">Concept</a></li>
+          <li><a href="#menu" class="footer-nav__link">Menu</a></li>
+          <li><a href="#shop-info" class="footer-nav__link">Shop Info</a></li>
+          <li><a href="#access" class="footer-nav__link">Access</a></li>
+          <li><a href="#contact" class="footer-nav__link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- コピーライト（著作権表記） -->
+      <div class="site-footer__bottom">
+        <small class="site-footer__copyright">&copy; 2026 Cafe Blossom All Rights Reserved.</small>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- 動き・メニュー開閉・フォーム確認用のスクリプト（script.js）読み込み -->
+  <script src="./script.js" defer></script>
+</body>
+</html>
