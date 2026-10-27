@@ -411,6 +411,16 @@ textarea {
   object-fit: contain;
 }
 
+/* ★【仮ロゴアイコン画像】丸型で品よく収まるスタイル */
+.site-logo__icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: contain;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(61, 46, 42, 0.08);
+}
+
 @media (max-width: 900px) {
   .site-logo__sub {
     display: none;
@@ -422,6 +432,10 @@ textarea {
     font-size: 1.2rem;
   }
   .site-logo img {
+    height: 32px;
+  }
+  .site-logo__icon {
+    width: 32px;
     height: 32px;
   }
 }
@@ -681,7 +695,7 @@ textarea {
   align-items: center;
   justify-content: center;
   /* 下端のSCROLL案内と重ならないよう上下左右にゆとりを確保 */
-  padding: 56px 24px 104px;
+  padding: clamp(36px, 4vw, 56px) 20px clamp(76px, 7vw, 104px);
   background-color: #3D2E2A;
   overflow: hidden;
 }
@@ -698,8 +712,8 @@ textarea {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* 窓辺の自然光・小花・カフェラテがバランスよく映える位置 */
-  object-position: center 52%;
+  /* 窓辺の自然光・いちごタルト・カフェラテが美しく映える位置 */
+  object-position: center 60%;
   transform: scale(1.03);
   animation: heroBgZoom 10s var(--ease-blossom) forwards;
 }
@@ -719,8 +733,8 @@ textarea {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 82% 58% at 50% 48%, rgba(50, 33, 28, 0.50) 0%, rgba(50, 33, 28, 0.24) 72%, rgba(44, 29, 25, 0.38) 100%),
-    linear-gradient(180deg, rgba(46, 30, 26, 0.26) 0%, rgba(56, 37, 32, 0.36) 52%, rgba(42, 27, 23, 0.54) 100%);
+    radial-gradient(ellipse 84% 60% at 50% 46%, rgba(50, 33, 28, 0.54) 0%, rgba(50, 33, 28, 0.28) 72%, rgba(44, 29, 25, 0.42) 100%),
+    linear-gradient(180deg, rgba(46, 30, 26, 0.32) 0%, rgba(56, 37, 32, 0.40) 50%, rgba(42, 27, 23, 0.56) 100%);
 }
 
 .hero__inner {
@@ -735,12 +749,50 @@ textarea {
   align-items: center;
 }
 
+/* ★【変更ポイント：仮ロゴアイコン＆ブランド表記】 */
+.hero__brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: clamp(10px, 1.6vw, 16px);
+}
+
+/* 仮ロゴアイコンバッジ（後から本物のロゴ画像に差し替え可能） */
+.hero__logo-badge {
+  width: clamp(52px, 5.5vw, 66px);
+  height: clamp(52px, 5.5vw, 66px);
+  border-radius: 50%;
+  padding: 3px;
+  background: rgba(253, 251, 247, 0.94);
+  box-shadow: 0 8px 24px rgba(38, 23, 19, 0.35), inset 0 0 0 1px rgba(255, 255, 255, 0.7);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: transform 0.3s var(--ease-blossom);
+}
+
+@media (hover: hover) {
+  .hero__logo-badge:hover {
+    transform: scale(1.06) rotate(3deg);
+  }
+}
+
+.hero__logo-icon {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: contain;
+  display: block;
+}
+
 /* 上部の小さな欧文オーナメント（高級感とワクワク感を添えるアクセント） */
 .hero__eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: clamp(14px, 2vw, 22px);
   color: #FAF1E8;
   text-shadow: 0 2px 10px rgba(38, 23, 19, 0.38);
 }
@@ -758,7 +810,7 @@ textarea {
   font-family: var(--font-serif);
   font-style: italic;
   font-weight: 600;
-  font-size: clamp(1.05rem, 1.6vw, 1.4rem);
+  font-size: clamp(1.05rem, 1.6vw, 1.35rem);
   letter-spacing: 0.16em;
   line-height: 1;
 }
@@ -769,36 +821,214 @@ textarea {
   line-height: 1;
 }
 
-/* ★【変更ポイント：必ず「1行」で魅せるメインキャッチコピー】
+/* ★【必須要素①：キャッチコピー（必ず「1行」で魅せるメインタイトル）】
    丸みのあるポップな親しみやすさと上品な高級感を兼ね備えた Zen Maru Gothic を使用 */
 .hero__title {
   font-family: var(--font-jp);
   font-weight: 700;
-  font-size: clamp(1.1rem, 4.9vw, 4.3rem);
+  /* どんな画面サイズでも絶対に文字溢れせず美しい1行をキープする可変指定 */
+  font-size: clamp(0.95rem, 4.3vw, 4.1rem);
   line-height: 1.35;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
   /* どんな画面サイズでも必ず美しい1行をキープする必須指定 */
   white-space: nowrap;
   font-feature-settings: "palt";
   color: #FFFDF9;
   text-shadow:
-    0 3px 20px rgba(38, 23, 19, 0.46),
-    0 1px 4px rgba(38, 23, 19, 0.34);
+    0 3px 20px rgba(38, 23, 19, 0.50),
+    0 1px 4px rgba(38, 23, 19, 0.36);
 }
 
-/* ★【変更ポイント：サブタイトル「好きなことを、好きなだけ。」】
+/* ★【必須要素①：サブコピー「好きなことを、好きなだけ。」】
    枠や背景塗りを置かず、カフェ写真の上に直接すっきりと浮かぶアイボリーホワイト文字で上品に表示 */
 .hero__subtitle {
-  margin-top: clamp(18px, 2.6vw, 28px);
+  margin-top: clamp(10px, 1.5vw, 18px);
   font-family: var(--font-jp);
   font-weight: 700;
-  font-size: clamp(1.05rem, 1.9vw, 1.5rem);
+  font-size: clamp(1.02rem, 1.8vw, 1.45rem);
   letter-spacing: 0.14em;
   line-height: 1.5;
   color: #FFFDF9;
   text-shadow:
-    0 2px 16px rgba(38, 23, 19, 0.48),
-    0 1px 4px rgba(38, 23, 19, 0.36);
+    0 2px 16px rgba(38, 23, 19, 0.52),
+    0 1px 4px rgba(38, 23, 19, 0.38);
+}
+
+/* ★【必須要素③：実績・訴求ボタン】3つのこだわり・安心訴求ボタン */
+.hero__appeals {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px 14px;
+  margin-top: clamp(18px, 2.4vw, 26px);
+  max-width: 980px;
+  padding: 0;
+  list-style: none;
+}
+
+.hero__appeal-item {
+  display: inline-flex;
+}
+
+.hero__appeal-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  background: rgba(253, 251, 247, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: var(--radius-full);
+  color: var(--color-text-main);
+  font-family: var(--font-jp);
+  font-size: clamp(0.8125rem, 0.76rem + 0.2vw, 0.875rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  box-shadow: 0 4px 16px rgba(38, 23, 19, 0.22);
+  transition:
+    transform 0.25s var(--ease-blossom),
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    color 0.25s ease;
+  cursor: pointer;
+}
+
+.hero__appeal-dot {
+  color: var(--color-accent);
+  font-size: 0.95em;
+  line-height: 1;
+}
+
+.hero__appeal-arrow {
+  color: var(--color-accent);
+  font-family: var(--font-en);
+  font-weight: 700;
+  font-size: 1.1em;
+  line-height: 1;
+  margin-left: 2px;
+  transition: transform 0.25s var(--ease-blossom);
+}
+
+@media (hover: hover) {
+  .hero__appeal-btn:hover {
+    background: #FFFFFF;
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(38, 23, 19, 0.28);
+  }
+  .hero__appeal-btn:hover .hero__appeal-arrow {
+    transform: translateX(3px);
+  }
+}
+
+/* ★【必須要素②：アクションボタン（CTA）】メイン＆サブボタン */
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 14px 18px;
+  margin-top: clamp(20px, 2.6vw, 30px);
+}
+
+.hero__btn-main {
+  min-width: 220px;
+  font-size: 0.98rem;
+  padding: 15px 32px;
+  box-shadow: 0 8px 24px rgba(174, 82, 90, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.hero__btn-sub {
+  min-width: 200px;
+  background: rgba(253, 251, 247, 0.94);
+  color: var(--color-text-main);
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-size: 0.9375rem;
+  padding: 15px 28px;
+  box-shadow: 0 6px 20px rgba(38, 23, 19, 0.22);
+}
+
+@media (hover: hover) {
+  .hero__btn-sub:hover {
+    background: #FFFFFF;
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(38, 23, 19, 0.3);
+  }
+}
+
+@media (max-width: 767px) {
+  .hero {
+    padding-inline: 14px;
+    padding-top: 24px;
+    padding-bottom: 68px;
+    overflow-x: hidden;
+  }
+  .hero__inner {
+    width: 100%;
+    max-width: 100%;
+  }
+  .hero__title {
+    font-size: clamp(0.78125rem, 4.5vw, 1.0625rem);
+    letter-spacing: 0.01em;
+  }
+  .hero__subtitle {
+    margin-top: 8px;
+    font-size: clamp(0.8125rem, 3.4vw, 0.95rem);
+    letter-spacing: 0.06em;
+  }
+  .hero__brand {
+    gap: 6px;
+    margin-bottom: 8px;
+  }
+  .hero__logo-badge {
+    width: 46px;
+    height: 46px;
+    margin-bottom: 2px;
+  }
+  .hero__actions {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 18px;
+  }
+  .hero__btn-main,
+  .hero__btn-sub {
+    width: 100%;
+    min-width: 0;
+    max-width: 290px;
+    padding-block: 13px;
+    font-size: 0.90625rem;
+  }
+  .hero__appeals {
+    width: 100%;
+    max-width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+    margin-top: 14px;
+  }
+  .hero__appeal-item {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .hero__appeal-btn {
+    width: 100%;
+    max-width: 290px;
+    justify-content: center;
+    padding: 7px 14px;
+    font-size: 0.78125rem;
+    gap: 6px;
+  }
 }
 
 /* 画面下端中央の控えめなスクロール誘導（写真の上で上品に映えるアイボリーホワイト） */
@@ -846,47 +1076,6 @@ textarea {
   50% {
     transform: scaleY(0.68);
     opacity: 0.45;
-  }
-}
-
-/* スマートフォン画面（767px以下）でも1行がはみ出さず美しく目立たせる微調整 */
-@media (max-width: 767px) {
-  .hero {
-    padding: 40px 12px 92px;
-  }
-
-  .hero__eyebrow {
-    gap: 8px;
-    margin-bottom: 14px;
-  }
-
-  .hero__title {
-    /* 360px〜390px幅でも画面横幅いっぱいに美しい1行で収まるサイズ */
-    font-size: clamp(1.02rem, 5.15vw, 2.5rem);
-    letter-spacing: 0.02em;
-  }
-
-  .hero__subtitle {
-    margin-top: 16px;
-    font-size: clamp(0.95rem, 4.1vw, 1.15rem);
-    letter-spacing: 0.11em;
-  }
-
-  .hero__scroll {
-    bottom: 16px;
-    font-size: 0.6875rem;
-  }
-
-  .hero__scroll::after {
-    height: 28px;
-  }
-}
-
-/* 超小型スマホ（340px以下）でのはみ出し防止ケア */
-@media (max-width: 340px) {
-  .hero__title {
-    font-size: 4.95vw;
-    letter-spacing: 0.01em;
   }
 }
 

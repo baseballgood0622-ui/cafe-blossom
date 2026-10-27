@@ -17,11 +17,13 @@
   <meta property="og:description" content="来月、すずらん通り商店街にオープンする小さなカフェ。丁寧に淹れるコーヒーと店内手作りのタルトや焼き菓子で、心に小さな花が咲くような穏やかな時間をお届けします。">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Cafe Blossom">
-  <meta property="og:image" content="./assets/hero-cafe.jpg">
+  <meta property="og:image" content="./assets/hero-blossom.jpg">
   <meta name="twitter:card" content="summary_large_image">
 
-  <!-- ブラウザのタブに表示される小さな花アイコン（外部ファイル不要のSVG設定） -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='8' r='5' fill='%23AE525A'/%3E%3Ccircle cx='23.6' cy='13.5' r='5' fill='%23AE525A'/%3E%3Ccircle cx='20.7' cy='22.5' r='5' fill='%23AE525A'/%3E%3Ccircle cx='11.3' cy='22.5' r='5' fill='%23AE525A'/%3E%3Ccircle cx='8.4' cy='13.5' r='5' fill='%23AE525A'/%3E%3Ccircle cx='16' cy='16' r='3.5' fill='%23FDFBF7'/%3E%3C/svg%3E" type="image/svg+xml">
+  <!-- ★【変更ポイント：ブラウザのタブに表示されるアイコン（ファビコン）】
+       現在は仮ロゴアイコン（./assets/logo-mark.png）を設定しています。
+       将来 logo-mark.png を本物のロゴアイコン画像に上書きすると、ここも自動で切り替わります！ -->
+  <link rel="icon" href="./assets/logo-mark.png" type="image/png">
 
   <!-- JavaScriptが有効な環境であることを判定する安全設計（JS無効時に文字が消えるのを防ぎます） -->
   <script>document.documentElement.classList.add('js-enabled');</script>
@@ -45,13 +47,22 @@
   <header class="site-header" id="site-header">
     <div class="site-header__inner">
 
-      <!-- ★【変更ポイント：お店のロゴ】
-           現在はロゴ素材準備中のため、文字（仮のテキストロゴ）で「Cafe Blossom」を表示しています。
-           将来ロゴ画像（例：assetsフォルダ内の logo.png）が完成したら、
-           下の「<span class="site-logo__text">〜<span class="site-logo__sub">」の2行を消して、
-           すぐ下の見本 <img> タグ前後のコメント記号を外すだけで綺麗に切り替わります！ -->
+      <!-- ★【変更ポイント：お店のロゴ（現在は「仮ロゴアイコン」を表示中）】
+           後から本物のロゴ画像に変更する際は、以下の2通りのどちらでも簡単に差し替えられます！
+           ・方法A（アイコン画像だけ変更したい場合）：
+             assets フォルダ内の「logo-mark.png」を新しい画像で上書き保存するだけで、ヘッダー・ファーストビュー・フッターが一括で変わります。
+           ・方法B（文字入りの横長ロゴ画像1枚に変更したい場合）：
+             下の <img class="site-logo__icon">〜<span class="site-logo__sub"> の3要素を消して、
+             すぐ下の見本 <img class="site-logo__full"> 前後のコメント記号を外してください。 -->
       <a href="#top" class="site-logo" aria-label="Cafe Blossom（カフェ ブロッサム） トップへ戻る">
-        <!-- <img src="./assets/logo.png" alt="Cafe Blossom（カフェ ブロッサム）" width="160" height="40"> -->
+        <!-- <img src="./assets/logo.png" class="site-logo__full" alt="Cafe Blossom（カフェ ブロッサム）" width="160" height="40"> -->
+        <img
+          src="./assets/logo-mark.png"
+          alt=""
+          class="site-logo__icon"
+          width="38"
+          height="38"
+        >
         <span class="site-logo__text">Cafe Blossom</span>
         <span class="site-logo__sub">カフェ ブロッサム</span>
       </a>
@@ -151,37 +162,99 @@
   <main id="main-content">
 
     <!-- ===================================================================
-         ② メインビジュアル（カフェ背景写真 × 1行キャッチコピー × サブタイトル）
-         ★【変更ポイント：ファーストビューの写真・1行タイトル・サブタイトル】
-         ・背景写真を差し替える場合は、assets フォルダに新しい画像を入れて下の src="./assets/hero-cafe.jpg" を変更してください。
-         ・メインタイトル（1行表示）は <h1 class="hero__title">、サブタイトルは <p class="hero__subtitle"> の文字を書き換えられます。
-         ・文字サイズや写真の上にかけるベールの濃さは、style.css の「5. ② メインビジュアル」で調整できます。
+         ② メインビジュアル（ファーストビュー必須4要素 ＋ 仮ロゴアイコン）
+         ★【社内共通ルール準拠：ファーストビュー必須4要素】
+           1. キャッチコピー（1行メインコピー＋サブコピー）
+           2. アクションボタン（おすすめメニューを見る／お店の場所・営業時間）
+           3. 実績・訴求ボタン（お店の強み・安心感を伝える3つの訴求ボタン）
+           4. 画像（自然光あふれるカフェテーブルの背景メイン写真）
+         ★【変更ポイント】
+           ・仮ロゴアイコンを差し替える場合：assets/logo-mark.png を上書きするか、下の .hero__logo-icon の src を変更してください。
+           ・背景写真を差し替える場合：assets フォルダに新しい画像を入れて下の .hero__bg 内 <img> の src を変更してください。
          =================================================================== -->
     <section class="hero" aria-label="メインビジュアル">
 
-      <!-- フルスクリーン背景写真（窓辺の自然光・カフェラテ・焼き菓子・一輪挿し） -->
+      <!-- 【必須要素④：画像】フルスクリーン背景写真（自家製いちごタルト・ハート模様のカフェラテ・桜の小花） -->
       <div class="hero__bg">
         <img
-          src="./assets/hero-cafe.jpg"
-          alt="やわらかな自然光が差し込む窓辺の木のテーブルに並ぶ、カフェラテと焼きたての焼き菓子、小さな花の一輪挿し"
+          src="./assets/hero-blossom.jpg"
+          alt="窓辺のやわらかな自然光が差し込む木のテーブルに並ぶ、自家製いちごタルトとハート模様のカフェラテ、桜の小花の一輪挿し"
           width="1376"
           height="768"
           fetchpriority="high"
         >
       </div>
 
-      <!-- 中央テキストエリア（高級感とポップな親しみやすさを両立した構成） -->
+      <!-- 中央コンテンツエリア（高級感とポップな親しみやすさを両立した構成） -->
       <div class="hero__inner">
-        <p class="hero__eyebrow">
-          <span class="hero__sparkle" aria-hidden="true">✦</span>
-          <span class="hero__eyebrow-text">Cafe Blossom</span>
-          <span class="hero__sparkle" aria-hidden="true">✦</span>
-        </p>
 
+        <!-- ★【変更ポイント：仮ロゴアイコン＆ブランド名（後から差し替え可能）】 -->
+        <div class="hero__brand">
+          <div class="hero__logo-badge">
+            <img
+              src="./assets/logo-mark.png"
+              alt="Cafe Blossom 仮ロゴマーク"
+              class="hero__logo-icon"
+              width="60"
+              height="60"
+            >
+          </div>
+          <p class="hero__eyebrow">
+            <span class="hero__sparkle" aria-hidden="true">✦</span>
+            <span class="hero__eyebrow-text">Cafe Blossom</span>
+            <span class="hero__sparkle" aria-hidden="true">✦</span>
+          </p>
+        </div>
+
+        <!-- 【必須要素①：キャッチコピー＆サブコピー】
+             メインコピーはどんな画面幅でも必ず1行表示、サブコピーは背景枠なしのすっきり白文字 -->
         <h1 class="hero__title">ちょっと寄り道、していきませんか？</h1>
-
-        <!-- サブタイトル（背景写真の上に直接すっきりと浮かぶ白文字） -->
         <p class="hero__subtitle">好きなことを、好きなだけ。</p>
+
+        <!-- 【必須要素③：実績・訴求ボタン】
+             お店ならではのこだわり・初来店の安心感を伝え、タップで詳細セクションへ移動できる訴求ボタン -->
+        <ul class="hero__appeals" aria-label="Cafe Blossomの3つのこだわり・安心ポイント">
+          <li class="hero__appeal-item">
+            <a href="#menu" class="hero__appeal-btn">
+              <span class="hero__appeal-dot" aria-hidden="true">✿</span>
+              <span class="hero__appeal-label">店内手作りの朝焼きタルト</span>
+              <span class="hero__appeal-arrow" aria-hidden="true">›</span>
+            </a>
+          </li>
+          <li class="hero__appeal-item">
+            <a href="#concept" class="hero__appeal-btn">
+              <span class="hero__appeal-dot" aria-hidden="true">☕</span>
+              <span class="hero__appeal-label">一杯ずつ丁寧なハンドドリップ</span>
+              <span class="hero__appeal-arrow" aria-hidden="true">›</span>
+            </a>
+          </li>
+          <li class="hero__appeal-item">
+            <a href="#shop-info" class="hero__appeal-btn">
+              <span class="hero__appeal-dot" aria-hidden="true">🌿</span>
+              <span class="hero__appeal-label">おひとり様歓迎・来月OPEN</span>
+              <span class="hero__appeal-arrow" aria-hidden="true">›</span>
+            </a>
+          </li>
+        </ul>
+
+        <!-- 【必須要素②：アクションボタン（CTA）】
+             次にとってほしい行動を迷わせないメインボタン＆サブボタン -->
+        <div class="hero__actions">
+          <a href="#menu" class="btn btn--primary hero__btn-main">
+            <span>おすすめメニューを見る</span>
+            <svg class="btn__icon" viewBox="0 0 20 20" width="17" height="17" fill="none" aria-hidden="true">
+              <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="#shop-info" class="btn hero__btn-sub">
+            <svg viewBox="0 0 20 20" width="16" height="16" fill="none" aria-hidden="true">
+              <path d="M10 17.2C10 17.2 15.2 12.4 15.2 8.2C15.2 5.33 12.87 3 10 3C7.13 3 4.8 5.33 4.8 8.2C4.8 12.4 10 17.2 10 17.2Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+              <circle cx="10" cy="8.2" r="2" stroke="currentColor" stroke-width="1.6"/>
+            </svg>
+            <span>お店の場所・営業時間</span>
+          </a>
+        </div>
+
       </div>
 
       <!-- 下にコンテンツが続くことを自然に伝える、控えめなスクロール案内 -->
@@ -774,10 +847,17 @@
   <footer class="site-footer">
     <div class="container site-footer__inner">
 
-      <!-- フッター店名ロゴ（ヘッダー同様、将来画像ロゴに差し替え可能です） -->
+      <!-- フッター店名ロゴ（ヘッダー同様、後から本物のロゴ画像に差し替え可能です） -->
       <div class="site-footer__brand">
         <a href="#top" class="site-logo site-logo--footer" aria-label="ページ先頭へ戻る">
-          <!-- <img src="./assets/logo.png" alt="Cafe Blossom（カフェ ブロッサム）" width="160" height="40"> -->
+          <!-- <img src="./assets/logo.png" class="site-logo__full" alt="Cafe Blossom（カフェ ブロッサム）" width="160" height="40"> -->
+          <img
+            src="./assets/logo-mark.png"
+            alt=""
+            class="site-logo__icon"
+            width="38"
+            height="38"
+          >
           <span class="site-logo__text">Cafe Blossom</span>
         </a>
         <p class="site-footer__subname">カフェ ブロッサム</p>
